@@ -1,5 +1,6 @@
 ﻿using ESAPIX.Bootstrapper;
 using ESAPIX.Common;
+using ESAPIX.Common.Args;
 using PlanCheker.Views;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,9 @@ namespace PlanCheker
             base.OnStartup(e);
             var bs = new AppBootstrapper<MainView>(() => { return V.Application.CreateApplication(); });
             //You can use the following to load a context (for debugging purposes)
-            //args = ContextIO.ReadArgsFromFile(@"..\Desktop\context.txt");
+            args = ContextIO.ReadArgsFromFile(@"C:\Users\cwalker\Desktop\context.txt");
             //Might disable (uncomment) for plugin mode
-            bs.IsPatientSelectionEnabled = true;
+            bs.IsPatientSelectionEnabled = false;
             bs.Run(args);
                    }
         protected override void OnExit(ExitEventArgs e)

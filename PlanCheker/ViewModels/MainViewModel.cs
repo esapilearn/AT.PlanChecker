@@ -10,6 +10,7 @@ using VMS.TPS.Common.Model.API;
 using System.Collections.ObjectModel;
 using Prism.Commands;
 using System.Windows;
+using ESAPIX.Constraints.DVH;
 
 namespace PlanCheker.ViewModels
 {
@@ -19,15 +20,47 @@ namespace PlanCheker.ViewModels
 
         public MainViewModel()
         {
-             EvaluateCommand = new DelegateCommand(Evaluate);
+            EvaluateCommand = new DelegateCommand(Evaluate);
+            CreateConstrints();
+
         }
+
+        private void CreateConstrints()
+        {
+            Constraints.AddRange(new PlanConstraint[]
+           {
+                new PlanConstraint(ConstraintBuilder.Build("PTV", "Max[%] <= 110")),
+                new PlanConstraint(ConstraintBuilder.Build("Rectum", "V75Gy[%] <= 15")),
+                new PlanConstraint(ConstraintBuilder.Build("Rectum", "V65Gy[%] <= 35")),
+                new PlanConstraint(ConstraintBuilder.Build("Bladder", "V80Gy[%] <= 15")),
+
+           });
+        }
+
         private void Evaluate()
         {
-            MessageBox.Show("Clicked");
+            foreach (var pc in Constraints)
+            {
+                var result = VMS.GetValue(sc =>
+                {
+                    //Check if we can constrain first
+                    var canConstrain = pc.Constraint.CanConstrain(sc.PlanSetup);
+                    //If not..report why
+                    if (!canConstrain.IsSuccess) { return canConstrain; }
+                    else
+                    {
+                        //Can constrain - so do it
+                        return pc.Constraint.Constrain(sc.PlanSetup);
+                    }
+                });
+                //Update UI
+                pc.Result = result;
+            }
+
         }
 
 
-        public ObservableCollection<PlanConstraint> Constrints { get; set; }
+        public ObservableCollection<PlanConstraint> Constraints { get; set; } = new ObservableCollection<PlanConstraint>();
 
         public DelegateCommand EvaluateCommand { get; set; }
     }
