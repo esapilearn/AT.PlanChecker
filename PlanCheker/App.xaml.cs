@@ -1,4 +1,5 @@
 ﻿using ESAPIX.Bootstrapper;
+using ESAPIX.Common;
 using PlanCheker.Views;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,13 @@ namespace PlanCheker
             bs.IsPatientSelectionEnabled = true;
             bs.Run(args);
                    }
-
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+            AppComThread.Instance.Dispose();
+        }
+       
+            
+        } 
     }
-}
+
