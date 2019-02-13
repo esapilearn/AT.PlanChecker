@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanCheker", "PlanCheker\PlanCheker.csproj", "{13B5923D-CFEA-494D-961E-734A922AEF5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanChekerTests", "PlanChekerTests\PlanChekerTests.csproj", "{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{13B5923D-CFEA-494D-961E-734A922AEF5B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13B5923D-CFEA-494D-961E-734A922AEF5B}.Release|x64.ActiveCfg = Release|x64
 		{13B5923D-CFEA-494D-961E-734A922AEF5B}.Release|x64.Build.0 = Release|x64
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Debug|x64.ActiveCfg = Debug|x64
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Debug|x64.Build.0 = Debug|x64
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Release|x64.ActiveCfg = Release|Any CPU
+		{78A9B33A-CA2D-434E-ABDD-FB953B47F4DE}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

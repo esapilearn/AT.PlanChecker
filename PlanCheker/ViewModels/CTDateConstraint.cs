@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using VMS.TPS.Common.Model.API;
 using F = ESAPIX.Facade.API;
 
-namespace Cardan.PlanChecker
+namespace PlanChecker
 {
     public class CTDateConstraint : IConstraint
     {

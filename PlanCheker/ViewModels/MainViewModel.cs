@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using Prism.Commands;
 using System.Windows;
 using ESAPIX.Constraints.DVH;
+using PlanChecker;
 
 namespace PlanCheker.ViewModels
 {
