@@ -31,7 +31,7 @@ namespace PlanCheker
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
-            AppComThread.Instance.Dispose();
+            AppComThread.Instance.Execute(sac =>sac.Dispose());
         }
        
             
