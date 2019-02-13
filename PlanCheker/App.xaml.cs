@@ -26,6 +26,7 @@ namespace PlanCheker
             //Might disable (uncomment) for plugin mode
             bs.IsPatientSelectionEnabled = true;
             bs.Run(args);
-        }
+                   }
+
     }
 }
